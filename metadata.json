@@ -1,13 +1,13 @@
 {
-  "name": "pcfens-topbeat",
+  "name": "stanicek-metricbeat",
   "version": "0.1.0",
-  "author": "pcfens",
+  "author": "stanicek",
   "license": "Apache-2.0",
-  "summary": "A module to install and manage topbeat",
-  "source": "https://github.com/pcfens/puppet-topbeat",
-  "project_page": "https://github.com/pcfens/puppet-topbeat",
-  "issues_url": "https://github.com/pcfens/puppet-topbeat/issues",
-  "tags": ["topbeat", "logstash", "elasticsearch", "elastic"],
+  "summary": "A module to install and manage metricbeat",
+  "source": "https://github.com/stanicek/puppet-metricbeat",
+  "project_page": "https://github.com/stanicek/puppet-metricbeat",
+  "issues_url": "https://github.com/stanicek/puppet-metricbeat/issues",
+  "tags": ["metricbeat", "topbeat", "logstash", "elasticsearch", "elastic"],
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
