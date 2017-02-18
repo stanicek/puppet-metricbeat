@@ -1,16 +1,16 @@
 require 'spec_helper_acceptance'
 
-describe "topbeat class:" do
+describe "metricbeat class:" do
 
-  package_name = 'topbeat'
-  service_name = 'topbeat'
-  pid_file     = '/var/run/topbeat.pid'
+  package_name = 'metricbeat'
+  service_name = 'metricbeat'
+  pid_file     = '/var/run/metricbeat.pid'
 
   describe "default parameters" do
 
     it 'should run successfully' do
       pp = "
-      class { 'topbeat':
+      class { 'metricbeat':
         output => {
           'logstash' => {
             'hosts' => [
@@ -41,8 +41,8 @@ describe "topbeat class:" do
       its(:content) { should match /[0-9]+/ }
     end
 
-    it 'Show all running topbeat processes' do
-      shell('ps auxfw | grep topbeat | grep -v grep')
+    it 'Show all running metricbeat processes' do
+      shell('ps auxfw | grep metricbeat | grep -v grep')
     end
 
   end

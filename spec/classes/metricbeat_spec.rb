@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'topbeat', :type => :class do
+describe 'metricbeat', :type => :class do
   let :facts do
     {
       :kernel => 'Linux',
@@ -10,13 +10,13 @@ describe 'topbeat', :type => :class do
   end
 
   context 'defaults' do
-    it { is_expected.to contain_topbeat__params }
-    it { is_expected.to contain_package('topbeat') }
-    it { is_expected.to contain_file('topbeat.yml').with(
-      :path => '/etc/topbeat/topbeat.yml',
+    it { is_expected.to contain_metricbeat__params }
+    it { is_expected.to contain_package('metricbeat') }
+    it { is_expected.to contain_file('metricbeat.yml').with(
+      :path => '/etc/metricbeat/metricbeat.yml',
       :mode => '0644',
     )}
-    it { is_expected.to contain_service('topbeat').with(
+    it { is_expected.to contain_service('metricbeat').with(
       :enable => true,
       :ensure => 'running',
     )}
@@ -50,8 +50,8 @@ describe 'topbeat', :type => :class do
       }
     end
 
-    it { is_expected.to contain_file('topbeat.yml').with(
-      :path => 'C:/Program Files/Topbeat/topbeat.yml',
+    it { is_expected.to contain_file('metricbeat.yml').with(
+      :path => 'C:/Program Files/Metricbeat/metricbeat.yml',
     )}
   end
 

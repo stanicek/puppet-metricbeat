@@ -1,36 +1,36 @@
-class topbeat::config {
-  $topbeat_config = {
-    'input'      => $topbeat::input,
-    'output'     => $topbeat::output,
-    'shipper'    => $topbeat::shipper,
-    'logging'    => $topbeat::logging,
-    'runoptions' => $topbeat::run_options,
+class metricbeat::config {
+  $metricbeat_config = {
+    'input'      => $metricbeat::input,
+    'output'     => $metricbeat::output,
+    'shipper'    => $metricbeat::shipper,
+    'logging'    => $metricbeat::logging,
+    'runoptions' => $metricbeat::run_options,
   }
 
   case $::kernel {
     'Linux'   : {
-      file {'topbeat.yml':
+      file {'metricbeat.yml':
         ensure  => file,
-        path    => '/etc/topbeat/topbeat.yml',
-        content => template("${module_name}/topbeat.yml.erb"),
+        path    => '/etc/metricbeat/metricbeat.yml',
+        content => template("${module_name}/metricbeat.yml.erb"),
         owner   => 'root',
         group   => 'root',
-        mode    => $topbeat::config_file_mode,
-        notify  => Service['topbeat'],
+        mode    => $metricbeat::config_file_mode,
+        notify  => Service['metricbeat'],
       }
     } # end Linux
 
     'Windows' : {
-      file {'topbeat.yml':
+      file {'metricbeat.yml':
         ensure  => file,
-        path    => 'C:/Program Files/Topbeat/topbeat.yml',
-        content => template("${module_name}/topbeat.yml.erb"),
-        notify  => Service['topbeat'],
+        path    => 'C:/Program Files/Metricbeat/metricbeat.yml',
+        content => template("${module_name}/metricbeat.yml.erb"),
+        notify  => Service['metricbeat'],
       }
     } # end Windows
 
     default : {
-      fail($topbeat::kernel_fail_message)
+      fail($metricbeat::kernel_fail_message)
     }
   }
 }

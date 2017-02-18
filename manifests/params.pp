@@ -1,4 +1,4 @@
-class topbeat::params {
+class metricbeat::params {
   $package_ensure = present
   $manage_repo    = true
   $service_ensure = running
@@ -10,7 +10,7 @@ class topbeat::params {
   $shipper        = {}
   $logging        = {}
   $run_options    = {}
-  $conf_template  = "${module_name}/topbeat.yml.erb"
+  $conf_template  = "${module_name}/metricbeat.yml.erb"
 
   case $::kernel {
     'Linux'   : {
@@ -22,13 +22,13 @@ class topbeat::params {
     }
 
     'Windows' : {
-      $download_url    = 'https://download.elastic.co/beats/topbeat/topbeat-1.0.1-windows.zip'
+      $download_url    = 'https://download.elastic.co/beats/metricbeat/metricbeat-1.0.1-windows.zip'
       $install_dir     = 'C:/Program Files'
       $tmp_dir         = 'C:/Temp'
     }
 
     default : {
-      fail($topbeat::kernel_fail_message)
+      fail($metricbeat::kernel_fail_message)
     }
   }
 }

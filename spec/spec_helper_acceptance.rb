@@ -14,7 +14,7 @@ RSpec.configure do |c|
   # Configure all nodes in nodeset
   c.before :suite do
     # Install module
-    puppet_module_install(:source => module_root, :module_name => 'topbeat',
+    puppet_module_install(:source => module_root, :module_name => 'metricbeat',
                           :target_module_path => '/etc/puppet/modules')
     hosts.each do |host|
       on host, puppet('module','install','puppetlabs-stdlib'), { :acceptable_exit_codes => [0,1] }

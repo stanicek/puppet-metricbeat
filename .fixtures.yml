@@ -5,4 +5,4 @@ fixtures:
     "powershell": "https://github.com/puppetlabs/puppetlabs-powershell.git"
     "remotefile": "https://github.com/lwf/puppet-remote_file.git"
   symlinks:
-    "topbeat": "#{source_dir}"
+    "metricbeat": "#{source_dir}"

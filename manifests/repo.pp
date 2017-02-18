@@ -1,8 +1,8 @@
-class topbeat::repo {
+class metricbeat::repo {
   case $::osfamily {
     'Debian': {
       include ::apt
-      Class['apt::update'] -> Package['topbeat']
+      Class['apt::update'] -> Package['metricbeat']
 
       if !defined(Apt::Source['beats']){
         apt::source { 'beats':
@@ -28,7 +28,7 @@ class topbeat::repo {
       }
     }
     'Suse': {
-      exec { 'topbeat_suse_import_gpg':
+      exec { 'metricbeat_suse_import_gpg':
         command => 'rpmkeys --import http://packages.elastic.co/GPG-KEY-elasticsearch',
         unless  => 'test $(rpm -qa gpg-pubkey | grep -i "D88E42B4" | wc -l) -eq 1 ',
         notify  => [ Zypprepo['elasticsearch'] ],
@@ -46,7 +46,7 @@ class topbeat::repo {
       }
     }
     default: {
-      fail($topbeat::kernel_fail_message)
+      fail($metricbeat::kernel_fail_message)
     }
   }
 }

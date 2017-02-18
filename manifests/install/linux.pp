@@ -1,5 +1,5 @@
-class topbeat::install::linux {
-  package {'topbeat':
-    ensure => $topbeat::package_ensure,
+class metricbeat::install::linux {
+  package {'metricbeat':
+    ensure => $metricbeat::package_ensure,
   }
 }

@@ -1,17 +1,17 @@
-class topbeat::install {
+class metricbeat::install {
   case $::kernel {
     'Linux':   {
-      contain topbeat::install::linux
-      if $::topbeat::manage_repo {
-        contain topbeat::repo
-        Class['topbeat::repo'] -> Class['topbeat::install::linux']
+      contain metricbeat::install::linux
+      if $::metricbeat::manage_repo {
+        contain metricbeat::repo
+        Class['metricbeat::repo'] -> Class['metricbeat::install::linux']
       }
     }
     'Windows': {
-      contain topbeat::install::windows
+      contain metricbeat::install::windows
     }
     default:   {
-      fail($topbeat::kernel_fail_message)
+      fail($metricbeat::kernel_fail_message)
     }
   }
 }

@@ -2,7 +2,7 @@ Changelog
 =========
 
 ## Unreleased
-[Full Changelog](https://github.com/pcfens/puppet-topbeat/compare/v0.1.0...HEAD)
+[Full Changelog](https://github.com/stanicek/puppet-metricbeat/compare/v0.1.0...HEAD)
 
 ## [v0.1.0](https://github.com/pcfens/puppet-topbeat/tree/v0.1.0)
 
