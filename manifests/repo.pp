@@ -20,9 +20,9 @@ class metricbeat::repo {
       if !defined(Yumrepo['beats']){
         yumrepo { 'beats':
           descr    => 'elasticsearch repo',
-          baseurl  => 'https://packages.elastic.co/beats/yum/el/$basearch',
+          baseurl  => 'https://artifacts.elastic.co/packages/5.x/yum',
           gpgcheck => 1,
-          gpgkey   => 'http://packages.elastic.co/GPG-KEY-elasticsearch',
+          gpgkey   => 'https://packages.elastic.co/GPG-KEY-elasticsearch',
           enabled  => 1,
         }
       }
