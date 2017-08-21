@@ -1,5 +1,3 @@
-<%- if @metricbeat_config['input']['period'] -%>
-<%- @metricbeat_config['input']['period'] = Integer(@metricbeat_config['input']['period']) -%>
-<%- end -%>
 ### Metricbeat configuration managed by Puppet ###
 <%= @metricbeat_config.to_yaml() %>
+q

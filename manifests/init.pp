@@ -39,7 +39,7 @@ class metricbeat (
   $service_ensure   = $metricbeat::params::service_ensure,
   $service_enable   = $metricbeat::params::service_enable,
   $config_file_mode = $metricbeat::params::config_file_mode,
-  $input            = $metricbeat::params::input,
+  $modules          = $metricbeat::params::modules,
   $output           = $metricbeat::params::output,
   $shipper          = $metricbeat::params::shipper,
   $logging          = $metricbeat::params::logging,
@@ -53,7 +53,8 @@ class metricbeat (
   $kernel_fail_message = "${::kernel} is not supported by metricbeat."
 
   validate_bool($manage_repo)
-  validate_hash($input, $output, $logging, $run_options)
+  validate_array($modules)
+  validate_hash($output, $logging, $run_options)
   validate_string($package_ensure, $service_ensure, $config_file_mode, $conf_template)
   validate_string($download_url, $install_dir, $tmp_dir)
 

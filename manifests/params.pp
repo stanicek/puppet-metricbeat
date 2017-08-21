@@ -5,7 +5,7 @@ class metricbeat::params {
   $service_enable = true
   $config_file_mode = '0644'
   $purge_conf_dir = true
-  $input          = {}
+  $modules        = {}
   $output         = {}
   $shipper        = {}
   $logging        = {}

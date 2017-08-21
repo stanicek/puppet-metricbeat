@@ -1,10 +1,10 @@
 class metricbeat::config {
   $metricbeat_config = {
-    'input'      => $metricbeat::input,
-    'output'     => $metricbeat::output,
-    'shipper'    => $metricbeat::shipper,
-    'logging'    => $metricbeat::logging,
-    'runoptions' => $metricbeat::run_options,
+    'metricbeat.modules' => $metricbeat::modules,
+    'output'             => $metricbeat::output,
+    'shipper'            => $metricbeat::shipper,
+    'logging'            => $metricbeat::logging,
+    'runoptions'         => $metricbeat::run_options,
   }
 
   case $::kernel {
